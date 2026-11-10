@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Notas del orador</title>
+<style>
+  :root{--bg:#0b0d10;--bg2:#161a20;--line:#2a2f38;--ink:#f3f1ec;--ink2:#b4b8c0;--ink3:#8a909b}
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);color:var(--ink);font:18px/1.5 system-ui,'Segoe UI',sans-serif;display:grid;grid-template-rows:auto 1fr auto;height:100vh}
+  header{display:flex;gap:28px;align-items:baseline;padding:14px 24px;border-bottom:1px solid var(--line)}
+  #clock{font-size:34px;font-weight:600;font-variant-numeric:tabular-nums}
+  #rest{color:var(--ink3);font-size:16px}
+  #reset{margin-left:auto;background:none;border:1px solid var(--line);color:var(--ink2);padding:5px 12px;border-radius:7px;cursor:pointer}
+  main{padding:20px 24px;overflow:auto}
+  h1{font-size:26px;letter-spacing:-.01em;margin-bottom:4px}
+  #meta{color:var(--ink3);font-size:15px;margin-bottom:16px}
+  #notes p{font-size:22px;line-height:1.45;margin-bottom:14px;color:var(--ink)}
+  #notes b{color:#fcd34d;font-weight:600}
+  #notes .a{font-size:17px;color:var(--ink3)}
+  footer{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 24px;border-top:1px solid var(--line);background:var(--bg2)}
+  #next{color:var(--ink2)}
+  .nav button{padding:12px 24px;font-size:18px;background:#23282f;color:var(--ink);border:1px solid var(--line);border-radius:8px;cursor:pointer}
+</style>
+</head>
+<body>
+<header><span id="clock">00:00</span><span id="rest"></span><button id="reset">Reiniciar reloj</button></header>
+<main><h1 id="title">Esperando la presentación…</h1><div id="meta"></div><div id="notes"></div></main>
+<footer><span id="next"></span><span class="nav"><button id="p">← Atrás</button> <button id="n">Siguiente →</button></span></footer>
+<script>
+  let t0 = Date.now();
+  const $ = i => document.getElementById(i);
+  const mmss = s => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+  setInterval(() => { $('clock').textContent = mmss((Date.now() - t0) / 1000); }, 500);
+  $('reset').onclick = () => { t0 = Date.now(); };
+  const nav = dir => opener?.postMessage({ type: 'nav', dir }, '*');
+  $('n').onclick = () => nav(1); $('p').onclick = () => nav(-1);
+  addEventListener('keydown', e => {
+    if (['ArrowRight', 'ArrowDown', ' ', 'PageDown'].includes(e.key)) { e.preventDefault(); nav(1); }
+    if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); nav(-1); }
+  });
+  addEventListener('message', e => {
+    const d = e.data; if (d?.type !== 'deck') return;
+    $('title').textContent = `${d.i}/${d.n} · ${d.title}`;
+    $('meta').textContent = `Tiempo sugerido: ${d.secs >= 60 ? Math.round(d.secs / 6) / 10 + ' min' : d.secs + ' s'}${d.steps ? ` · paso ${d.step} de ${d.steps}` : ''}`;
+    $('notes').innerHTML = d.html;
+    $('next').textContent = `Sigue: ${d.next}`;
+    $('rest').textContent = `Quedan ~${Math.round(d.remaining / 60)} min de guion`;
+  });
+  opener?.postMessage({ type: 'ready' }, '*');
+</script>
+</body>
+</html>

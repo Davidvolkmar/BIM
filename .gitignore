@@ -1,0 +1,12 @@
+# Imágenes preparadas que la presentación no usa
+assets/img/exp_centro_usos.jpg
+assets/img/exp_oficinas_mep2.jpg
+assets/img/exp_mixto.jpg
+assets/img/exp_torre.jpg
+assets/img/exp_torre_estructura.jpg
+assets/img/exp_red_centro.jpg
+assets/img/lamina_bano.jpg
+# Archivos del sistema
+desktop.ini
+Thumbs.db
+__pycache__/

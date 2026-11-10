@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Una tienda, un solo modelo</title>
+<link rel="stylesheet" href="css/deck.css">
+</head>
+<body>
+<div id="stage">
+
+<!-- ───────────── APERTURA ───────────── -->
+<section class="slide" id="portada" data-title="Portada" data-chapter="Apertura" style="padding:0">
+  <div id="hero3d"></div><div class="scrim"></div>
+  <div class="hero-t">
+    <div class="kick in">Revit y BIM para espacios comerciales</div>
+    <h1 class="in d1 mt1">Una tienda.<br>Un solo modelo.</h1>
+    <p class="in d2">Cómo pasar de dibujar cada punto de venta a construirlo una vez, con toda su información.</p>
+    <p class="who in d3">Arq. David Volkmar Velez · Magíster en Bioclimática · Esp. Construcción Sostenible</p>
+  </div>
+  <aside class="notes" data-t="30">
+    <p>Déjala respirar. La tienda se arma sola mientras la gente se sienta.</p>
+    <p><b>Apertura:</b> gracias por el espacio. Hoy no vengo a enseñarles un programa. Vengo a responder la pregunta que me hicieron: qué ventajas les da Revit según el tipo de proyecto que ustedes hacen.</p>
+    <p class="a">Controles: → avanzar · ← volver · F pantalla completa · N notas · G índice · B pantalla negra.</p>
+  </aside>
+</section>
+
+<section class="slide" id="quien" data-title="Quién les habla" data-chapter="Apertura" data-tool="bim">
+  <div class="quien">
+    <div class="frame in"><img src="assets/img/david.jpg" alt="Retrato de David Volkmar Vélez"></div>
+    <div class="qtxt">
+      <div class="kick in">Quién les habla</div>
+      <h2 class="in d1 mt1">David Volkmar Vélez</h2>
+      <p class="in d1 qtit">Arquitecto · Magíster en Bioclimática · Esp. Construcción Sostenible<br>Coordinador BIM y docente universitario en Medellín</p>
+      <div class="qnum in d2">
+        <div><b>10+</b><span>años de práctica</span></div><div><b>8+</b><span>años de docencia</span></div><div><b>25+</b><span>proyectos de diseño y asesoría</span></div><div><b>12+</b><span>ponencias, talleres y concursos</span></div>
+      </div>
+      <div class="qareas in d3">
+        <div><b>BIM</b><span>Coordinación en Revit, de la idea al detalle</span></div>
+        <div><b>Bioclimática</b><span>Asesoría y diseño, Profesional Avanzado CASA</span></div>
+        <div><b>Docencia</b><span>Representación digital, paramétrico y diseño</span></div>
+        <div><b>Computacional</b><span>Diseño generativo y herramientas propias</span></div>
+      </div>
+      <p class="fine in d4 mt1">Portafolio: davidvolkmar.github.io/BIOBIM</p>
+    </div>
+  </div>
+  <aside class="notes" data-t="40">
+    <p>Rápido, menos de un minuto. Lo importante para ellos: coordino BIM en proyectos reales y enseño a otros a hacerlo. Lo que verán hoy sale de esa práctica.</p>
+    <p class="a">Cifras tomadas de tu portafolio BIOBIM.</p>
+  </aside>
+</section>
+
+<section class="slide" id="partida" data-title="Lo que nos contaron" data-chapter="Apertura" data-tool="hoy">
+  <div class="kick in">Punto de partida</div>
+  <div class="t3 mt2 in d2">
+    <div class="box"><h3>AutoCAD</h3><p>Planos arquitectónicos, detalles constructivos y desarrollo inmobiliario.</p></div>
+    <div class="box"><h3>SketchUp</h3><p>Mobiliario y representación de algunos proyectos.</p></div>
+    <div class="box"><h3>Su foco</h3><p>Espacios comerciales y puntos de venta para las diferentes marcas de la empresa.</p></div>
+  </div>
+  <p class="in d3 mt3" style="font-size:44px;line-height:1.2;color:var(--ink);letter-spacing:-.02em;max-width:1500px"><span class="acc">¿Qué ventajas nos ofrece Revit según el tipo de proyecto que realizamos?</span></p>
+  <aside class="notes" data-t="50">
+    <p>Lee las tres cajas y pregunta si está bien. Si corrigen algo, mejor: ya están participando.</p>
+    <p>Hoy veremos cuatro cosas: qué es BIM desde cero, qué cambia en cada tipo de proyecto suyo, cómo se organiza una oficina alrededor de una plantilla y unos keynotes, y qué decisiones les tocaría tomar.</p>
+    <p><b>Al equipo directivo:</b> al final hay una lámina con cinco decisiones. Podemos salir de aquí con ellas tomadas o, al menos, con responsable.</p>
+  </aside>
+</section>
+
+<section class="slide" id="archivos" data-title="Un cambio, muchos archivos" data-chapter="Hoy" data-tool="hoy">
+  <div class="kick in">Cómo se trabaja hoy</div>
+  <h2 class="in d1 mt1">La marca pide agrandar la vitrina. ¿Cuántos archivos hay que tocar?</h2>
+  <div class="files in d2">
+    <div class="file" style="--i:0"><i>a mano</i><b>Planta.dwg</b><span>Arquitectura</span></div>
+    <div class="file" style="--i:1"><i>a mano</i><b>Fachada.dwg</b><span>Alzados y cortes</span></div>
+    <div class="file" style="--i:2"><i>a mano</i><b>Detalles.dwg</b><span>Carpintería y vidrio</span></div>
+    <div class="file" style="--i:3"><i>a mano</i><b>Mobiliario.skp</b><span>Exhibición en vitrina</span></div>
+    <div class="file" style="--i:4"><i>a mano</i><b>Render.skp</b><span>Imagen para la marca</span></div>
+    <div class="file" style="--i:5"><i>a mano</i><b>Cantidades.xlsx</b><span>Vidrio, aluminio, piso</span></div>
+    <div class="file" style="--i:6"><i>a mano</i><b>Acabados.xlsx</b><span>Cuadro de acabados</span></div>
+    <div class="file" style="--i:7"><i>a mano</i><b>Aprobación.pdf</b><span>Paquete para el centro comercial</span></div>
+  </div>
+  <p class="mt3" data-step="2" style="font-size:40px;line-height:1.25;color:var(--ink);letter-spacing:-.02em">El problema es el número de sitios donde vive el mismo dato. Si uno queda sin corregir, el error llega a la obra.</p>
+  <aside class="notes" data-t="70">
+    <p>Antes de avanzar pregunta: <b>¿les ha pasado?</b> Deja que cuenten un caso real. Vale más que cualquier lámina.</p>
+    <p>Paso 1: se encienden los archivos uno a uno. Paso 2: la conclusión.</p>
+    <p class="a">Son ocho archivos de ejemplo. Si en su oficina son más o menos, ajusta el número de viva voz.</p>
+  </aside>
+</section>
+
+<!-- ───────────── BIM DESDE CERO ───────────── -->
+<section class="slide" id="bim" data-title="Qué es BIM" data-chapter="BIM desde cero" data-tool="bim">
+  <div class="kick in">BIM desde cero</div>
+  <h2 class="in d1 mt1">BIM es una forma de trabajar. Revit es la herramienta con la que se hace.</h2>
+  <div class="bim-letters in d2">
+    <div><span class="L">B</span><h3>Building</h3><p>El edificio, el local, la tienda: lo que se va a construir.</p></div>
+    <div class="hl"><span class="L">I</span><h3>Information</h3><p>La parte que importa. Cada elemento guarda qué es, cuánto mide, de qué material es y quién lo suministra.</p></div>
+    <div><span class="L">M</span><h3>Modeling</h3><p>Se construye virtualmente antes de construir en sitio.</p></div>
+  </div>
+  <aside class="notes" data-t="45">
+    <p>Partimos de un modelo que almacena información y propiedades en cada componente constructivo. El modelo 3D es la parte visible; la base de datos que lleva adentro es lo que cambia la oficina.</p>
+    <p><b>Para aclarar:</b> se puede tener Revit y no hacer BIM, si solo se usa para dibujar. Y BIM es también acuerdos entre personas, no solo un software.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="objeto" data-title="Línea contra objeto" data-chapter="BIM desde cero" data-tool="bim">
+  <div class="kick in">La diferencia en una sola imagen</div>
+  <h2 class="in d1 mt1">El mismo local, visto por los dos programas.</h2>
+  <div class="obj in d2">
+    <div style="position:relative;min-height:0;min-width:0">
+    <div id="obj3d" hidden style="position:absolute;inset:0;border-radius:14px;overflow:hidden;background:#12151a;cursor:grab"></div>
+    <svg viewBox="0 0 1000 720" role="img" aria-label="Planta de un local con elementos seleccionables">
+      <g data-el="piso"><rect class="el" x="80" y="70" width="840" height="580" style="stroke-width:1"/></g>
+      <g data-el="muro"><rect class="el" x="60" y="50" width="880" height="20"/></g>
+      <g><rect x="60" y="650" width="880" height="20" fill="#14171b"/><rect x="920" y="70" width="20" height="580" fill="#14171b"/></g>
+      <g data-el="vitrina"><rect class="el" x="66" y="110" width="14" height="340"/></g>
+      <g data-el="gondola"><rect class="el" x="220" y="70" width="170" height="70"/><rect class="el" x="410" y="70" width="170" height="70"/><rect class="el" x="600" y="70" width="170" height="70"/><rect class="el" x="220" y="580" width="170" height="70"/><rect class="el" x="410" y="580" width="170" height="70"/></g>
+      <g><rect x="770" y="300" width="16" height="350" fill="#14171b"/><rect x="770" y="70" width="16" height="130" fill="#14171b"/></g>
+      <g data-el="puerta"><rect class="el" x="770" y="200" width="16" height="100"/><path d="M786 200A100 100 0 0 1 886 300" fill="none" stroke="#14171b" stroke-width="2"/></g>
+      <g data-el="ducto"><rect class="el" x="120" y="330" width="760" height="40" style="stroke-dasharray:14 9;stroke-width:2.5"/></g>
+      <text x="845" y="480" font-size="26" text-anchor="middle" fill="#14171b" font-family="Geist,sans-serif">Bodega</text>
+    </svg>
+    </div>
+    <div class="props">
+      <div class="seg" style="margin-bottom:22px"><button data-modo="cad">Ver como AutoCAD</button><button data-modo="rvt">Ver como Revit</button><button data-modo="3d">Revit en 3D</button></div>
+      <div id="props"></div>
+      <p class="fine mta" id="objAyuda">Haz clic en el muro, la vitrina, una góndola, la puerta, el piso o el ducto punteado.</p>
+    </div>
+  </div>
+  <aside class="notes" data-t="60">
+    <p>Empieza en <b>Ver como AutoCAD</b>, clic en la vitrina: son líneas en una capa. Cambia a <b>Ver como Revit</b>: el mismo elemento sabe qué es, su tipo, su área y su keynote.</p>
+    <p>Clic en el piso: en AutoCAD el área hay que medirla; en Revit ya está. Esa es toda la idea.</p>
+    <p>Termina en <b>Revit en 3D</b>: gira el local y haz clic en el ducto de aire. En planta era una línea punteada de otro archivo; en 3D se ve que atraviesa el muro de la bodega. Eso es coordinar antes de construir.</p>
+    <p class="a">Sin desmerecer AutoCAD: es excelente para dibujar. Solo que no sabe qué dibujó.</p>
+  </aside>
+</section>
+
+<section class="slide" id="cinco" data-title="Cuándo se está haciendo BIM" data-chapter="BIM desde cero" data-tool="bim">
+  <div class="kick in">Cinco condiciones</div>
+  <h2 class="in d1 mt1">Estamos trabajando en BIM cuando:</h2>
+  <div class="five">
+    <div data-step="1"><b>Modelo 3D</b><p>Hay una representación precisa del local, no un dibujo por vista.</p></div>
+    <div data-step="2"><b>Actualización automática</b><p>Se cambia el modelo y se actualizan vistas e información asociada.</p></div>
+    <div data-step="3"><b>Componentes paramétricos</b><p>Una góndola cambia de medida sin redibujarse.</p></div>
+    <div data-step="4"><b>Información constructiva</b><p>El modelo es también una base de datos para construir.</p></div>
+    <div data-step="5"><b>Trabajo colaborativo</b><p>Varias personas trabajan a la vez sobre un archivo central.</p></div>
+  </div>
+  <aside class="notes" data-t="50">
+    <p>Son las cinco condiciones de siempre, traducidas a una tienda. Pasa rápido: enseguida las verán funcionando.</p>
+  </aside>
+</section>
+
+<section class="slide" id="programas" data-title="Qué pasa con AutoCAD y SketchUp" data-chapter="BIM desde cero" data-tool="bim">
+  <div class="kick in">Lo que ya tienen no se bota</div>
+  <h2 class="in d1 mt1">Cambia dónde vive la información. AutoCAD y SketchUp siguen teniendo su lugar.</h2>
+  <div class="io in d2">
+    <div><h3>Entra a Revit</h3><ul><li><b>DWG</b> base del centro comercial, vinculado para calcar</li><li><b>Detalles</b> existentes de AutoCAD, como referencia o vistas de dibujo</li><li><b>SketchUp</b> de concepto y mobiliario, como referencia de diseño</li><li><b>Manual de marca</b>, convertido en materiales y familias</li></ul></div>
+    <div class="core"><b>Revit</b><span>Una sola fuente para planos, cantidades y especificaciones</span></div>
+    <div><h3>Sale de Revit</h3><ul><li><b>PDF y DWG</b> para contratistas y administración del centro comercial</li><li><b>Tablas a Excel</b> para presupuesto y compras</li><li><b>IFC</b> para coordinar con otros programas</li><li><b>Modelo</b> para visualización y revisión con la marca</li></ul></div>
+  </div>
+  <aside class="notes" data-t="55">
+    <p>Esta lámina baja la ansiedad del equipo: nadie pierde lo que sabe. Quien hoy detalla bien en AutoCAD sigue detallando bien.</p>
+    <p>SketchUp sigue siendo muy bueno para pensar rápido. Lo que cambia es que el proyecto oficial, el que se construye, vive en un solo lugar.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="curva" data-title="La curva de esfuerzo" data-chapter="BIM desde cero" data-tool="bim">
+  <div class="kick in">Curva de MacLeamy</div>
+  <h2 class="in d1 mt1">Con BIM el esfuerzo se mueve hacia el diseño, donde cambiar todavía es barato.</h2>
+  <div class="curva in d2">
+    <svg viewBox="0 0 1700 660" role="img" aria-label="Curvas de esfuerzo en el proceso tradicional y con BIM a lo largo de las fases del proyecto" font-family="Geist,sans-serif">
+      <g stroke="#2a2f38" stroke-width="1.5">
+        <line x1="120" y1="40" x2="120" y2="560"/><line x1="120" y1="560" x2="1660" y2="560"/>
+        <line x1="340" y1="40" x2="340" y2="560" stroke-dasharray="6 8"/><line x1="560" y1="40" x2="560" y2="560" stroke-dasharray="6 8"/><line x1="780" y1="40" x2="780" y2="560" stroke-dasharray="6 8"/><line x1="1000" y1="40" x2="1000" y2="560" stroke-dasharray="6 8"/><line x1="1220" y1="40" x2="1220" y2="560" stroke-dasharray="6 8"/><line x1="1440" y1="40" x2="1440" y2="560" stroke-dasharray="6 8"/>
+      </g>
+      <g fill="#b4b8c0" font-size="24" text-anchor="middle">
+        <text x="230" y="598">Idea</text><text x="450" y="598">Diseño</text><text x="450" y="626">esquemático</text><text x="670" y="598">Desarrollo</text><text x="670" y="626">del diseño</text><text x="890" y="598">Documentación</text><text x="1110" y="598">Licitación</text><text x="1330" y="598">Construcción</text><text x="1550" y="598">Operación</text>
+      </g>
+      <text x="40" y="300" fill="#7f8591" font-size="24" text-anchor="middle" transform="rotate(-90 40 300)">Esfuerzo · efecto · costo</text>
+      <g data-step="1" class="cv">
+        <path d="M130 90 C 520 110, 860 430, 1650 520" fill="none" stroke="#34d399" stroke-width="6"/>
+        <text x="150" y="58" fill="#34d399" font-size="25" font-weight="600">1 · Capacidad de cambiar costo y funcionamiento</text>
+        <path d="M130 530 C 700 525, 1000 300, 1650 90" fill="none" stroke="#a78bfa" stroke-width="6"/>
+        <text x="1650" y="70" fill="#a78bfa" font-size="25" font-weight="600" text-anchor="end">2 · Costo de hacer un cambio</text>
+      </g>
+      <g data-step="2" class="cv">
+        <path d="M130 545 C 520 540, 700 170, 900 160 S 1240 520, 1650 548" fill="none" stroke="#ef4444" stroke-width="7"/>
+        <text x="935" y="140" fill="#ef4444" font-size="27" font-weight="700">3 · Esfuerzo tradicional</text>
+      </g>
+      <g data-step="3" class="cv">
+        <path d="M130 545 C 300 520, 440 150, 610 140 S 900 500, 1650 552" fill="none" stroke="#38bdf8" stroke-width="7"/>
+        <text x="540" y="112" fill="#38bdf8" font-size="27" font-weight="700" text-anchor="end">4 · Esfuerzo con BIM</text>
+        <path d="M880 205 L 650 190" stroke="#f3f1ec" stroke-width="3" marker-end="url(#flecha)"/>
+        <defs><marker id="flecha" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#f3f1ec"/></marker></defs>
+      </g>
+    </svg>
+    <div class="cvtxt">
+      <div data-step="1"><b>Al comienzo</b> una decisión cambia mucho el proyecto y cuesta poco. Al final, cualquier cambio sale caro.</div>
+      <div data-step="2"><b>Hoy</b> el trabajo pesado llega en la documentación, cuando casi todo ya está decidido.</div>
+      <div data-step="3"><b>Con BIM</b> el pico se adelanta: se resuelve en el modelo y los planos salen de él.</div>
+    </div>
+  </div>
+  <aside class="notes" data-t="60">
+    <p>Tres pasos. <b>Paso 1:</b> las dos curvas de base: lo que puedo cambiar baja, lo que cuesta cambiar sube. <b>Paso 2:</b> así trabajamos hoy, con el pico de esfuerzo en documentación. <b>Paso 3:</b> con BIM el pico se corre al diseño.</p>
+    <p>Conecta con la lámina de archivos: el esfuerzo en documentación es redibujar en ocho sitios. Con el modelo, ese esfuerzo se gasta antes, en decidir.</p>
+    <p class="a">Es la curva de Patrick MacLeamy (HOK, 2004). Es conceptual, no son datos medidos.</p>
+  </aside>
+</section>
+
+<!-- ───────────── DEMO ───────────── -->
+<section class="slide wide" id="demo" data-title="Demostración: un cambio, todo se actualiza" data-chapter="Demostración" data-tool="bim">
+  <h2 style="font-size:42px">Un cambio, todo se actualiza. Prueben ustedes.</h2>
+  <div class="tile">
+    <div class="pane dark"><span class="pt">Vista 3D</span><div id="p3d" style="position:absolute;inset:0"></div></div>
+    <div class="pane"><span class="pt">A-101 Planta · arrastra la isla</span><svg id="pPlanta"></svg></div>
+    <div class="pane"><span class="pt">A-201 Fachada</span><svg id="pFachada"></svg></div>
+    <div class="pane"><span class="pt">Tabla de cantidades</span><table><tbody id="tTabla"></tbody></table></div>
+    <div class="ctrls">
+      <div class="ctl"><label>Ancho <output id="oW"></output></label><input type="range" id="rW" min="6" max="14" step=".5" value="9" aria-label="Ancho del local"></div>
+      <div class="ctl"><label>Fondo <output id="oD"></output></label><input type="range" id="rD" min="10" max="22" step=".5" value="14" aria-label="Fondo del local"></div>
+      <div class="ctl"><label>Vitrina <output id="oV"></output></label><input type="range" id="rV" min="2" max="6.6" step=".1" value="4.5" aria-label="Largo de la vitrina"></div>
+      <div class="ctl"><label>Góndolas <output id="oG"></output></label><input type="range" id="rG" min="2" max="14" step="2" value="6" aria-label="Número de góndolas"></div>
+      <div class="ctl"><label>Kit de marca</label><div class="seg"><button data-m="A">A</button><button data-m="B">B</button><button data-m="C">C</button></div></div>
+      <div class="tally">
+        <div class="row"><span>Cambios</span><b id="tCambios">0</b></div>
+        <div class="row"><span>Actualizaciones</span><b id="tVistas">0</b></div>
+        <div class="row"><span>Redibujos a mano</span><b>0</b></div>
+        <button class="btn mt1" id="btnReset" style="width:100%;font-size:22px;padding:8px">Volver al inicio</button>
+      </div>
+    </div>
+  </div>
+  <aside class="notes" data-t="240">
+    <p><b>Es el momento central de la charla.</b> Haz la vitrina de 4,5 a 6 m: fachada, planta, 3D y cantidades cambian a la vez.</p>
+    <p>Luego invita a alguien del equipo a decir qué mover. Arrastra la isla en la planta. Sube las góndolas. Cambia a <b>Marca B</b>: la misma tienda con otro kit de materiales. Eso es lo que usaremos después para hablar de varias marcas.</p>
+    <p>En el 3D se puede arrastrar para girar.</p>
+    <p class="a">Aclara que esta demo es una ilustración hecha para la charla, no Revit corriendo. El principio es el mismo; en Revit una regeneración toma más tiempo en modelos grandes.</p>
+  </aside>
+</section>
+
+<!-- ───────────── SEGÚN SU PROYECTO ───────────── -->
+<section class="slide wide" id="tipos" data-title="Ventajas según el tipo de proyecto" data-chapter="Según su proyecto" data-tool="casos" data-tabs>
+  <div class="kick in">Respuesta a su pregunta</div>
+  <h2 class="in d1 mt1">Qué cambia según el tipo de proyecto.</h2>
+  <div class="tabs mt1 in d2">
+    <button class="sel">Punto de venta nuevo</button><button>Remodelación</button><button>Isla o kiosco</button><button>Mobiliario</button><button>Desarrollo inmobiliario</button>
+  </div>
+  <div class="panel-t ptype sel">
+    <div class="col"><span>Hoy</span><ul><li>Se copia un DWG parecido y se adapta.</li><li>Planta, cortes, tablas y mobiliario se corrigen por separado.</li><li>Cada persona resuelve los planos a su manera.</li></ul></div>
+    <div class="col gain"><span>Con plantilla y kit de marca</span><ul><li>Se arranca desde un local tipo de la marca.</li><li>Hojas, leyendas y cantidades salen del modelo.</li><li>Se comparan dos distribuciones con opciones de diseño.</li></ul></div>
+    <div class="keep"><b>Sigue igual:</b> las decisiones de diseño y la negociación con cada centro comercial.</div>
+  </div>
+  <div class="panel-t ptype">
+    <div class="col"><span>Hoy</span><ul><li>Se levanta el local y se dibuja lo existente.</li><li>Demolición y obra nueva van en planos distintos.</li><li>Las cantidades de demolición se miden a mano.</li></ul></div>
+    <div class="col gain"><span>Con fases en un solo modelo</span><ul><li>Existente, demoler y nuevo conviven en un archivo.</li><li>Cada plano filtra lo que le corresponde.</li><li>Las cantidades salen por fase.</li></ul></div>
+    <div class="keep"><b>Sigue igual:</b> si el cambio es menor, como pintura o una góndola, modelar solo se justifica cuando la tienda ya está en Revit.</div>
+  </div>
+  <div class="panel-t ptype">
+    <div class="col"><span>Hoy</span><ul><li>Una versión del dibujo por cada centro comercial.</li><li>Cada administración pide su propio paquete.</li><li>Cambia una medida y se repite el trabajo.</li></ul></div>
+    <div class="col gain"><span>Con una familia paramétrica</span><ul><li>La isla es un solo objeto con tipos por tamaño.</li><li>Se ajusta la medida y el paquete se actualiza.</li><li>El mismo modelo sirve para aprobar y para fabricar.</li></ul></div>
+    <div class="keep"><b>Sigue igual:</b> para una isla irrepetible, SketchUp y un detalle en AutoCAD pueden ser más rápidos. La ventaja aparece con la repetición.</div>
+  </div>
+  <div class="panel-t ptype">
+    <div class="col"><span>Hoy</span><ul><li>SketchUp modela, AutoCAD detalla y Excel cuenta.</li><li>Tres archivos para un mismo mueble.</li><li>El mueble no sabe cuántos hay en cada tienda.</li></ul></div>
+    <div class="col gain"><span>Con familias de mobiliario</span><ul><li>Cada mueble tiene tipos por medida, material y marca.</li><li>Aparece en planta, alzado y tabla sin repetir trabajo.</li><li>Revit completo agrega ensamblajes para despiece.</li></ul></div>
+    <div class="keep"><b>Sigue igual:</b> el detalle fino de fabricación puede seguir en AutoCAD o en el programa del taller.</div>
+  </div>
+  <div class="panel-t ptype">
+    <div class="col"><span>Hoy</span><ul><li>Las áreas viven en Excel, separadas de los planos.</li><li>Estructura e instalaciones llegan en DWG por disciplina.</li><li>Las interferencias aparecen en obra.</li></ul></div>
+    <div class="col gain"><span>Con modelos coordinados</span><ul><li>El cuadro de áreas se actualiza con el diseño.</li><li>Arquitectura, estructura e instalaciones se vinculan.</li><li>Se detectan interferencias antes de construir.</li></ul></div>
+    <div class="keep"><b>Importante:</b> aquí casi siempre hace falta Revit completo, por trabajo compartido, masas y coordinación.</div>
+  </div>
+  <aside class="notes" data-t="150">
+    <p>Esta es la respuesta directa a lo que preguntaron. Ve primero al tipo que más hagan. <b>Pregunta cuál es.</b></p>
+    <p>Fíjate en la franja inferior de cada pestaña: es lo que da credibilidad. Decir dónde Revit no gana hace creíble lo demás.</p>
+    <p class="a">No hace falta recorrer las cinco si se alarga la conversación.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="marcas" data-title="Una plantilla, varias marcas" data-chapter="Según su proyecto" data-tool="casos">
+  <div class="kick in">Su caso particular</div>
+  <h2 class="in d1 mt1">Varias marcas no son varias oficinas: un tronco común y un kit por marca.</h2>
+  <div class="tree in d2">
+    <div class="trunk">
+      <div class="base"><h3>Tronco común de la empresa</h3><p>Rótulos, hojas, tablas, nomenclatura, capítulos de keynotes, estilos de línea y familias genéricas. Se mantiene una sola vez.</p></div>
+      <div class="kits">
+        <button class="kit" data-m="A"><h3>Kit marca A</h3><div class="swatches"></div></button>
+        <button class="kit" data-m="B"><h3>Kit marca B</h3><div class="swatches"></div></button>
+        <button class="kit" data-m="C"><h3>Kit marca C</h3><div class="swatches"></div></button>
+      </div>
+      <div class="base"><h3>Y un local tipo por tamaño</h3><p>Pequeño, mediano y grande: cada marca arranca de una distribución ya resuelta y solo adapta el local real.</p></div>
+    </div>
+    <div class="props">
+      <h3>Lo que trae cada kit</h3>
+      <dl id="kitDet"></dl>
+      <p class="say">Mobiliario, señalética, materiales y claves propias de la marca. Lo demás lo hereda del tronco.</p>
+      <p class="fine mta">Marcas A, B y C son de ejemplo.</p>
+    </div>
+  </div>
+  <aside class="notes" data-t="70">
+    <p>Recuerda la demo: cambiar de Marca A a Marca B. Esto es lo mismo, pero organizado.</p>
+    <p><b>Mensaje:</b> la inversión se hace una vez en el tronco y después, marca por marca, según prioridad.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="experiencia" data-title="Experiencias en proyectos reales" data-chapter="Según su proyecto" data-tool="casos">
+  <div class="kick in">El método en distintas escalas</div>
+  <h2 class="in d1 mt1">Tipos de proyecto donde el método ya funcionó.</h2>
+  <div class="exp in d2">
+    <div><div class="frame"><img src="assets/img/exp_centro_estructura.jpg" alt="Modelo estructural de un centro comercial"></div><h3>Centro comercial</h3><p>Estructura, etapas de vaciado y recorridos antes de la obra.</p></div>
+    <div><div class="frame"><img src="assets/img/exp_oficinas_mep.jpg" alt="Modelo de instalaciones de un edificio"></div><h3>Edificio de oficinas</h3><p>Instalaciones técnicas coordinadas y flujos 4D y 5D.</p></div>
+    <div><div class="frame"><img src="assets/img/exp_vivienda.jpg" alt="Planta seccionada de vivienda en 3D"></div><h3>Vivienda en altura</h3><p>Cantidades de obra con trazabilidad y actualización automática.</p></div>
+    <div><div class="frame"><img src="assets/img/exp_cortado.jpg" alt="Modelo federado de varias disciplinas"></div><h3>Uso mixto</h3><p>Disciplinas vinculadas y trabajo colaborativo en la nube.</p></div>
+  </div>
+  <aside class="notes" data-t="60">
+    <p>Cuenta tu papel en cada uno, sin nombres de proyecto ni de cliente.</p>
+    <p>El punto: esto se probó en escalas mucho mayores que una tienda. Una tienda es un caso más simple y más repetible, lo que la vuelve un buen candidato.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="coordinacion" data-title="Encontrar el problema antes de la obra" data-chapter="Según su proyecto" data-tool="casos">
+  <div class="kick in">Caso real, sin nombre</div>
+  <h2 class="in d1 mt1">Una tubería contra un ducto, resuelta en el computador.</h2>
+  <div class="clash">
+    <div class="frame in d2"><img src="assets/img/interf_antes_3d.jpg" alt="Modelo con interferencia entre tubería y ducto"><span class="cap">Antes: la red de desagüe cruza el aire acondicionado</span></div>
+    <div class="frame in d2"><img src="assets/img/interf_antes_plano.jpg" alt="Plano con la interferencia marcada"><span class="cap">La nota de coordinación en el plano</span></div>
+    <div class="frame" data-step="1"><img src="assets/img/interf_despues_3d.jpg" alt="Modelo con la tubería rediseñada"><span class="cap">Después: rutas rediseñadas y recorridos más cortos</span></div>
+    <div class="frame" data-step="1"><img src="assets/img/interf_despues_plano.jpg" alt="Plano con la solución"><span class="cap">Se bajó la tubería conservando las pendientes</span></div>
+  </div>
+  <aside class="notes" data-t="45">
+    <p>La interferencia entre las aguas residuales y el aire acondicionado se vio en el modelo. Se rediseñaron las rutas, se eliminó un tramo y la tubería bajó conservando pendientes.</p>
+    <p><b>En una tienda:</b> pasa lo mismo con aire, iluminación, cielo y altura de la vitrina, casi siempre en locales con muy poco espacio sobre el cielo.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="modeloobra" data-title="Del modelo a la obra" data-chapter="Según su proyecto" data-tool="casos" data-pares>
+  <div class="kick in">Modelo contra obra</div>
+  <h2 class="in d1 mt1">Lo que se coordinó en el modelo es lo que quedó construido.</h2>
+  <div class="tabs mt1 in d2">
+    <button class="sel" data-a="assets/img/ducto_modelo.jpg" data-b="assets/img/ducto_obra.jpg">Desvío de desagüe en viga</button>
+    <button data-a="assets/img/canast_modelo.jpg" data-b="assets/img/canast_obra.jpg">Canastillas y red contra incendio</button>
+    <button data-a="assets/img/zona1_modelo.jpg" data-b="assets/img/zona1_obra.jpg">Recorrido general</button>
+    <button data-a="assets/img/zona2_modelo.jpg" data-b="assets/img/zona2_obra.jpg">Pasillo técnico</button>
+  </div>
+  <div class="cmp mt1 in d3">
+    <img class="base" src="assets/img/ducto_obra.jpg" alt="Foto de obra"><img class="top" src="assets/img/ducto_modelo.jpg" alt="Modelo Revit">
+    <div class="h"></div><span class="tl">Modelo</span><span class="tr">Obra</span>
+  </div>
+  <aside class="notes" data-t="40">
+    <p>Arrastra la línea blanca. Muestra el primer par y uno más. Déjalo hablar solo.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="recorrido" data-title="Del render a la obra terminada" data-chapter="Según su proyecto" data-tool="casos" data-pares>
+  <div class="kick in">El mismo punto de vista</div>
+  <h2 class="in d1 mt1">Render, construcción y obra terminada.</h2>
+  <div class="tabs mt1 in d2">
+    <button class="sel" data-a="assets/img/recorrido_modelo.jpg" data-b="assets/img/recorrido_final.jpg" data-ta="Render" data-tb="Obra final">Render y obra final</button>
+    <button data-a="assets/img/recorrido_modelo.jpg" data-b="assets/img/recorrido_obra.jpg" data-ta="Render" data-tb="Construcción">Render y construcción</button>
+  </div>
+  <div class="cmp mt1 in d3">
+    <img class="base" src="assets/img/recorrido_final.jpg" alt="Foto de la obra terminada"><img class="top" src="assets/img/recorrido_modelo.jpg" alt="Render del modelo">
+    <div class="h"></div><span class="tl">Render</span><span class="tr">Obra final</span>
+  </div>
+  <aside class="notes" data-t="30">
+    <p>El valor comercial: la marca aprueba viendo lo que de verdad se va a construir.</p>
+  </aside>
+</section>
+
+<!-- ───────────── LICENCIAS ───────────── -->
+<section class="slide wide" id="licencias" data-title="Revit LT y Revit completo" data-chapter="Licencias" data-tool="lic">
+  <div class="kick in">Revit LT o Revit completo</div>
+  <h2 class="in d1 mt1">LT modela y documenta. Revit completo además coordina, automatiza y trabaja en equipo.</h2>
+  <div class="lt in d2">
+    <div>
+      <h3>Está en los dos</h3>
+      <div class="pills">
+        <span class="pill">Muros, pisos, cielos</span><span class="pill">Familias</span><span class="pill">Opciones de diseño</span><span class="pill">Fases</span><span class="pill">Grupos</span><span class="pill">Tablas y cómputos</span><span class="pill">Keynotes</span><span class="pill">Plantillas</span><span class="pill">Anotación y revisiones</span><span class="pill">DWG e IFC</span><span class="pill">Vincular Revit</span>
+      </div>
+      <div class="prices">
+        <div><b>US$2.800</b><span>Revit, año, tienda LATAM</span></div>
+        <div><b>US$3.425</b><span>AEC Collection, año, LATAM</span></div>
+        <div><b>Cotizar</b><span>Revit LT: LATAM lo ofrece en suite con AutoCAD LT</span></div>
+      </div>
+      <p class="fine mt1">Autodesk, 6 de noviembre de 2026. Lista EE. UU.: Revit LT US$560 al año. Confirmar con un distribuidor.</p>
+    </div>
+    <div>
+      <h3>Solo en Revit completo</h3>
+      <div class="only">
+        <div><b>Trabajo compartido</b><span>Varias personas en el mismo modelo a la vez.</span></div>
+        <div><b>Filtros de vista</b><span>Colorear por marca, fase o estado.</span></div>
+        <div><b>Dynamo, macros y complementos</b><span>Automatizar hojas, nombres y parámetros.</span></div>
+        <div><b>Interferencias y copiar/supervisar</b><span>Coordinar con instalaciones y estructura.</span></div>
+        <div><b>Modelado in situ</b><span>En LT, un mostrador único se hace como familia.</span></div>
+        <div><b>Ensamblajes y partes</b><span>Despiece de mobiliario para fabricar.</span></div>
+        <div><b>Instalaciones (MEP)</b><span>Ductos, tuberías y circuitos.</span></div>
+        <div><b>Render en el programa</b><span>LT renderiza en la nube.</span></div>
+        <div><b>Masas y parámetros globales</b><span>Estudios volumétricos y reglas de proyecto.</span></div>
+        <div><b>Calcomanías</b><span>Logos y gráficas de marca sobre superficies.</span></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes" data-t="90">
+    <p>Tabla oficial de Autodesk consultada el 6 de noviembre de 2026.</p>
+    <p><b>Lo que sorprende:</b> LT sí tiene fases, opciones de diseño, tablas y keynotes. Lo que no tiene es lo que une a un equipo: trabajo compartido, filtros de vista y automatización.</p>
+    <p><b>Compatibilidad:</b> un proyecto puede ir y venir entre Revit y LT. Pero si se usaron complementos en Revit, puede que no abra en LT. Autodesk recomienda probar el flujo antes.</p>
+    <p class="a">Ojo: la tabla comercial de Autodesk marca importar SketchUp y PDF como no incluido en LT, mientras su ayuda lo presenta distinto. Como ellos usan SketchUp, hay que probarlo en la versión de prueba antes de decidir.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="selector" data-title="Qué licencia necesita cada quien" data-chapter="Licencias" data-tool="lic">
+  <div class="kick in">Selector</div>
+  <h2 class="in d1 mt1">No toda la oficina necesita la misma licencia.</h2>
+  <div class="calc" style="grid-template-columns:680px 1fr">
+    <div>
+      <div class="ctl"><label>Personas que usarán Revit <output id="oN"></output></label><input type="range" id="sN" min="1" max="20" value="6" aria-label="Personas"></div>
+      <div class="ctl mt1"><label>Personas en un mismo proyecto a la vez <output id="oS"></output></label><input type="range" id="sS" min="1" max="20" value="2" aria-label="Personas simultáneas"></div>
+      <div class="mt1">
+        <label class="toggle">Coordinamos instalaciones o estructura en el modelo<input type="checkbox" id="sMep"></label>
+        <label class="toggle">Queremos automatizar con Dynamo o complementos<input type="checkbox" id="sAuto" checked></label>
+        <label class="toggle">Despiezamos mobiliario para fabricación<input type="checkbox" id="sMue"></label>
+        <label class="toggle">Queremos renderizar dentro de Revit<input type="checkbox" id="sRen"></label>
+      </div>
+      <div class="field mt1"><span>Revit, US$/año</span><input type="number" id="pRev" value="2800" aria-label="Precio Revit"></div>
+      <div class="field"><span>LT o suite, US$/año (referencia, cotizar)</span><input type="number" id="pLT" value="680" aria-label="Precio Revit LT"></div>
+    </div>
+    <div class="reco">
+      <div class="mix">
+        <div><b id="mFull" class="acc">2</b><span>Revit completo</span></div>
+        <div><b id="mLt">4</b><span>Revit LT</span></div>
+        <div><b id="mTot" style="font-size:54px;line-height:1.7">—</b><span>por año. Todos en Revit: <span id="mAll"></span></span></div>
+      </div>
+      <ul id="mWhy"></ul>
+      <p class="fine mta">Orientación para discutir, no una regla. El valor LT es una referencia pública de la suite con AutoCAD LT y debe cotizarse.</p>
+    </div>
+  </div>
+  <aside class="notes" data-t="75">
+    <p>Pide a la dirección el número real de personas. Mueve los deslizadores en vivo. El resultado sirve para la decisión 4 del final.</p>
+    <p><b>Regla simple:</b> quien mantiene la plantilla y quien comparte modelo necesitan Revit completo. Quien trabaja un local solo puede estar en LT.</p>
+  </aside>
+</section>
+
+<!-- ───────────── PLANTILLA Y KEYNOTES ───────────── -->
+<section class="slide wide" id="plantilla" data-title="Qué es una plantilla" data-chapter="Plantilla y keynotes" data-tool="sis" data-layers>
+  <div class="kick in">Plantilla</div>
+  <h2 class="in d1 mt1">La plantilla es la forma de trabajar de la oficina, guardada en un archivo.</h2>
+  <div class="layers in d2">
+    <div class="list" id="capas"></div>
+    <div class="det" id="capaDet"></div>
+  </div>
+  <aside class="notes" data-t="75">
+    <p>Un archivo .rte del que nace cada proyecto. Lo que se resuelve aquí una vez no se vuelve a resolver en ninguna tienda.</p>
+    <p>Haz clic en dos o tres capas. Te recomiendo <b>Hojas y rótulos</b>, <b>Tablas</b> y <b>Familias</b>.</p>
+    <p class="a">La lista sigue la guía de buenas prácticas de plantillas de Autodesk.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="keynote0" data-title="Qué es un keynote" data-chapter="Plantilla y keynotes" data-tool="sis">
+  <div class="kick in">Keynote desde cero</div>
+  <h2 class="in d1 mt1">Un keynote es un código en el plano que apunta a una especificación escrita una sola vez.</h2>
+  <div class="two mt2 in d2">
+    <div>
+      <div class="txt">2       PISOS
+2.1     Pisos de tienda  <span style="color:var(--ink3)">→ 2</span>
+<span class="k">2.1.1</span>   Porcelanato gris 60 × 60  <span style="color:var(--ink3)">→ 2.1</span>
+<span class="k">2.1.2</span>   Vinilo en tablón  <span style="color:var(--ink3)">→ 2.1</span>
+8       MOBILIARIO
+8.1     Mobiliario comercial  <span style="color:var(--ink3)">→ 8</span>
+<span class="k">8.1.1</span>   Góndola mural  <span style="color:var(--ink3)">→ 8.1</span></div>
+      <p class="fine mt1">Es un archivo de texto: clave, descripción y capítulo padre. Se edita en el Bloc de notas o se genera desde Excel.</p>
+    </div>
+    <div>
+      <div class="five" style="margin-top:0">
+        <div style="grid-template-columns:230px 1fr"><b style="font-size:30px">Sin keynote</b><p>La nota se escribe en cada plano. Si cambia, se busca en todos.</p></div>
+        <div style="grid-template-columns:230px 1fr"><b style="font-size:30px">Con keynote</b><p>El material o el tipo lleva la clave. La etiqueta la lee sola.</p></div>
+        <div style="grid-template-columns:230px 1fr"><b style="font-size:30px">Resultado</b><p>Una sola fuente para plano, leyenda y especificación.</p></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes" data-t="50">
+    <p>Es la pieza menos conocida y la que más ordena la fase documental.</p>
+    <p>Los keynotes funcionan igual en Revit y en Revit LT.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="keynote" data-title="Keynote en vivo" data-chapter="Plantilla y keynotes" data-tool="sis">
+  <h2 style="font-size:42px">Corrijan un texto en un solo sitio. Miren los planos.</h2>
+  <div class="kdemo">
+    <div class="kedit"><span>Editando <b id="kClave"></b></span><input id="kInput" aria-label="Descripción del keynote"></div>
+    <div style="display:flex;flex-direction:column;gap:10px;min-height:0">
+      <div class="txt" id="kTxt"></div>
+      <div class="kshow" style="flex:1">
+        <svg viewBox="0 0 900 400" role="img" aria-label="Alzado interior del local con etiquetas de keynote" font-family="Geist,sans-serif">
+          <rect x="30" y="30" width="840" height="30" fill="#e8e6df" stroke="#14171b" stroke-width="2"/>
+          <rect x="30" y="60" width="840" height="270" fill="#ece7df" stroke="#14171b" stroke-width="2"/>
+          <rect x="30" y="330" width="840" height="30" fill="#b9b4aa" stroke="#14171b" stroke-width="2"/>
+          <rect x="50" y="95" width="240" height="235" fill="#bfe6f5" stroke="#14171b" stroke-width="2"/>
+          <rect x="60" y="62" width="220" height="26" fill="#e4572e"/>
+          <g fill="#8a6a4a" stroke="#14171b" stroke-width="1.5"><rect x="400" y="130" width="130" height="200"/><rect x="540" y="130" width="130" height="200"/><rect x="680" y="130" width="130" height="200"/></g>
+          <g stroke="#14171b" stroke-width="1.5"><path d="M400 180h410M400 230h410M400 280h410"/></g>
+          <g class="tagk" data-k="9.1.1"><rect x="288" y="62" width="84" height="32" rx="16" fill="#fff" stroke="#14171b" stroke-width="2"/><text x="330" y="85" font-size="21" font-weight="600" text-anchor="middle">9.1.1</text></g>
+          <g class="tagk" data-k="5.2.1"><rect x="128" y="190" width="84" height="32" rx="16" fill="#fff" stroke="#14171b" stroke-width="2"/><text x="170" y="213" font-size="21" font-weight="600" text-anchor="middle">5.2.1</text></g>
+          <g class="tagk" data-k="8.1.1"><rect x="563" y="190" width="84" height="32" rx="16" fill="#fff" stroke="#14171b" stroke-width="2"/><text x="605" y="213" font-size="21" font-weight="600" text-anchor="middle">8.1.1</text></g>
+          <g class="tagk" data-k="1.1.1"><rect x="320" y="130" width="72" height="32" rx="16" fill="#fff" stroke="#14171b" stroke-width="2"/><text x="356" y="153" font-size="20" font-weight="600" text-anchor="middle">1.1.1</text></g>
+          <g class="tagk" data-k="2.1.1"><rect x="430" y="329" width="84" height="32" rx="16" fill="#fff" stroke="#14171b" stroke-width="2"/><text x="472" y="352" font-size="21" font-weight="600" text-anchor="middle">2.1.1</text></g>
+          <g class="tagk" data-k="3.1.1"><rect x="600" y="29" width="84" height="32" rx="16" fill="#fff" stroke="#14171b" stroke-width="2"/><text x="642" y="52" font-size="21" font-weight="600" text-anchor="middle">3.1.1</text></g>
+        </svg>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;min-height:0">
+      <div class="kout" id="kOut" style="flex:1"></div>
+      <p class="fine">En Revit, el archivo de claves se recarga y el proyecto toma el texto nuevo. Claves de ejemplo.</p>
+    </div>
+  </div>
+  <div id="kFichaWrap" hidden><dl id="kFicha"></dl></div>
+  <aside class="notes" data-t="150">
+    <p>Toca una etiqueta en el alzado, por ejemplo <b>2.1.1</b>. Se resalta su línea en el archivo de texto.</p>
+    <p>Escribe arriba: "Porcelanato <b>beige</b> 80 × 80". Las hojas que usan esa clave se actualizan a la vez.</p>
+    <p><b>Mensaje:</b> la cadena completa es clave, tipo de Revit, etiqueta, leyenda en el plano, tabla y especificación. Nadie reescribe nada.</p>
+    <p class="a">Precisión: en Revit la tabla de keynotes se recarga desde su configuración o al reabrir el proyecto. No es instantáneo como aquí.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="caso" data-title="Así se ve en un proyecto real" data-chapter="Plantilla y keynotes" data-tool="sis">
+  <div class="kick in">Caso real, sin nombre</div>
+  <h2 class="in d1 mt1">Una plantilla construida para un proyecto de gran escala.</h2>
+  <div class="numbers in d2">
+    <div><b>12</b><span>capítulos</span></div><div><b>31</b><span>subcapítulos</span></div><div><b>246</b><span>claves activas</span></div><div><b>64</b><span>familias propias</span></div><div><b>19</b><span>parámetros compartidos</span></div>
+  </div>
+  <div class="two mt2 in d3" style="gap:44px">
+    <div>
+      <h3 style="margin-bottom:12px">Lo que aprendimos</h3>
+      <ul class="rules">
+        <li><b>Primero se crearon 911 tipos.</b> Solo 126 combinaciones eran reales. Se depuró.</li>
+        <li><b>Una lista por categoría.</b> El espacio es una columna, no otro capítulo.</li>
+        <li><b>Una familia por geometría.</b> Varios tipos si cambia medida, material o especificación.</li>
+        <li><b>Las claves nuevas van al final.</b> Nunca se renumera.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="margin-bottom:12px">El esqueleto sirve para una tienda</h3>
+      <div class="caps">
+        <div><i>0</i>Muros</div><div><i>6</i>Barandas</div>
+        <div><i>1</i>Acabados de muro</div><div><i>7</i>Estructura</div>
+        <div class="m"><i>2</i>Pisos · por marca</div><div class="m"><i>8</i>Mobiliario · por marca</div>
+        <div class="m"><i>3</i>Cielos · por marca</div><div class="m"><i>9</i>Señalética · por marca</div>
+        <div><i>4</i>Cubiertas</div><div class="m"><i>10</i>Iluminación · por marca</div>
+        <div><i>5</i>Puertas y divisiones</div><div><i>11</i>Aparatos sanitarios</div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes" data-t="75">
+    <p>Es trabajo reciente y propio. Lo cuento sin nombrar el proyecto.</p>
+    <p><b>La historia de los 911 tipos:</b> crear todas las combinaciones parecía ordenado, pero confundía. La versión depurada tiene menos elementos y funciona mejor. Una plantilla buena se recorta.</p>
+    <p>Para ustedes: los capítulos resaltados son los que cambian por marca. El resto es el tronco común.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="documental" data-title="La fase documental" data-chapter="Plantilla y keynotes" data-tool="sis">
+  <div class="kick in">Donde más se nota</div>
+  <h2 class="in d1 mt1">En la fase documental, el juego de planos ya existe antes de empezar.</h2>
+  <div class="two mt1 in d2" style="grid-template-columns:1fr 1.08fr;gap:36px">
+    <div class="sheetlist">
+      <div><i>A-001</i>Portada e índice<em>Índice automático</em></div>
+      <div><i>A-101</i>Planta de distribución<em>Vista del modelo</em></div>
+      <div><i>A-102</i>Planta de mobiliario<em>Vista + tabla</em></div>
+      <div><i>A-103</i>Planta de acabados<em>Keynotes + leyenda</em></div>
+      <div><i>A-104</i>Cielo reflejado<em>Vista del modelo</em></div>
+      <div><i>A-201</i>Fachada y cortes<em>Vistas del modelo</em></div>
+      <div><i>A-301</i>Alzados interiores<em>Vistas del modelo</em></div>
+      <div><i>A-501</i>Detalles constructivos<em>Biblioteca + ajuste</em></div>
+      <div><i>A-601</i>Cuadros y cantidades<em>Tablas automáticas</em></div>
+      <p class="mt1" style="font-size:27px;line-height:1.3"><b>Sigue siendo trabajo humano:</b> decidir, anotar lo particular y revisar. Lo repetitivo deja de hacerse a mano.</p>
+    </div>
+    <div class="frame fit"><img src="assets/img/lamina_cocina.jpg" alt="Lámina de detalle de un espacio interior generada desde un modelo"><span class="cap">Plantas, alzados e isométricos del mismo modelo</span></div>
+  </div>
+  <aside class="notes" data-t="60">
+    <p>Es la frase que más les interesa: el mayor ahorro de una oficina como esta está en documentar. La plantilla trae las hojas listas; al modelar, se llenan.</p>
+    <p>Los códigos de plano son una propuesta; se ajustan a los suyos.</p>
+  </aside>
+</section>
+
+<!-- ───────────── ORGANIZACIÓN ───────────── -->
+<section class="slide wide" id="documentos" data-title="Los documentos base" data-chapter="Organización" data-tool="org">
+  <div class="kick in">Gestión BIM</div>
+  <h2 class="in d1 mt1">Unos documentos se escriben una vez. Otros, en cada proyecto.</h2>
+  <div class="docs in d2">
+    <div class="list" id="docList"></div>
+    <div id="docDet"></div>
+  </div>
+  <aside class="notes" data-t="150">
+    <p>Arranca con <b>Manual BIM</b> y <b>Plan de ejecución</b>, los dos que más preguntan.</p>
+    <p>Los nombres en inglés (EIR, BEP) vienen de la serie ISO 19650, adoptada en Colombia como NTC-ISO 19650. BIM Fórum Colombia tiene una plantilla de BEP alineada con esa norma.</p>
+    <p><b>Mensaje:</b> para una oficina de tiendas esto debe ser corto. Un plan de ejecución puede ser de dos páginas si la tienda es repetitiva. El papeleo que nadie lee no sirve.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="roles" data-title="Cómo se articula el equipo" data-chapter="Organización" data-tool="org">
+  <div class="kick in">Personas</div>
+  <h2 class="in d1 mt1">Cinco responsabilidades. En una oficina pequeña, una persona puede llevar dos.</h2>
+  <div class="roles in d2">
+    <div class="role"><h3>Dirección</h3><p>Define prioridades y revisa sobre el modelo.</p><small>No necesita modelar</small></div>
+    <div class="role"><h3>Líder BIM</h3><p>Dueño de plantilla, estándar y control de calidad.</p><small>Revit completo</small></div>
+    <div class="role"><h3>Coordinación</h3><p>Lleva cada proyecto y cruza con externos.</p><small>Revit completo</small></div>
+    <div class="role"><h3>Modelado y documentación</h3><p>Hace el local y emite los planos.</p><small>Revit o LT</small></div>
+    <div class="role"><h3>Biblioteca</h3><p>Crea y cuida familias de mobiliario por marca.</p><small>Revit o LT</small></div>
+  </div>
+  <div class="t3 mt2 in d3">
+    <div class="box"><h3>En el mismo archivo</h3><p>Trabajo compartido: varias personas sobre un modelo central, en servidor o en la nube.</p></div>
+    <div class="box"><h3>Entre archivos</h3><p>Vínculos: arquitectura, estructura e instalaciones se ven juntas sin mezclarse.</p></div>
+    <div class="box"><h3>Con externos</h3><p>DWG, PDF e IFC para quien no trabaja en Revit. Se puede empezar sin que nadie más cambie.</p></div>
+  </div>
+  <aside class="notes" data-t="75">
+    <p>Pregunta: <b>¿quién de ustedes sería Líder BIM?</b> Es la decisión más importante de la charla. Sin dueño, la plantilla envejece.</p>
+    <p>El trabajo en la nube se licencia aparte de Revit (Autodesk Construction Cloud).</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="flujo" data-title="Una forma de trabajar" data-chapter="Organización" data-tool="org">
+  <div class="kick in">Flujo de un punto de venta</div>
+  <h2 class="in d1 mt1">De la solicitud de la marca al cierre de obra.</h2>
+  <div class="lanes in d2">
+    <span></span><div class="head">Solicitud</div><div class="head">Arranque</div><div class="head">Diseño</div><div class="head">Documentación</div><div class="head">Control</div><div class="head">Obra y cierre</div>
+    <span class="who">Quién</span><div class="c">Marca y dirección</div><div class="c">Líder BIM</div><div class="c">Diseño</div><div class="c">Modelado</div><div class="c">Líder BIM</div><div class="c">Coordinación</div>
+    <span class="who" data-step="1">Qué hace</span><div class="c" data-step="1">Brief, local y presupuesto</div><div class="c" data-step="1">Crea el proyecto desde plantilla y kit</div><div class="c" data-step="1">Distribución, mobiliario y opciones</div><div class="c" data-step="1">Hojas, keynotes, tablas y detalles</div><div class="c" data-step="1">Revisa antes de emitir</div><div class="c" data-step="1">Registra cambios y actualiza el modelo</div>
+    <span class="who" data-step="2">Documento</span><div class="c doc" data-step="2">Requisitos de información</div><div class="c doc" data-step="2">Plan de ejecución</div><div class="c doc" data-step="2">Modelo y vistas de revisión</div><div class="c doc" data-step="2">Paquete de planos</div><div class="c doc" data-step="2">Lista de control</div><div class="c doc" data-step="2">Modelo final</div>
+  </div>
+  <p class="mt2" data-step="3" style="font-size:36px;line-height:1.25;color:var(--ink);letter-spacing:-.02em">Lo que se aprende en una tienda vuelve a la plantilla. <span class="acc">Así cada proyecto deja la oficina mejor que antes.</span></p>
+  <aside class="notes" data-t="75">
+    <p>Tres pasos: quién, qué hace y qué documento produce. El último paso es el más importante: la mejora vuelve a la plantilla.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="ruta" data-title="Cómo se migra" data-chapter="Organización" data-tool="org">
+  <div class="kick in">Migración</div>
+  <h2 class="in d1 mt1">Una oficina no se migra de un día para otro. Se migra por etapas.</h2>
+  <div class="path in d2">
+    <div class="st"><div class="dot"></div><b>Diagnóstico</b><p>Proyectos tipo, planos y detalles que se repiten.</p></div>
+    <div class="st"><div class="dot"></div><b>Estándar</b><p>Nomenclatura, capítulos, roles y documentos.</p></div>
+    <div class="st"><div class="dot"></div><b>Plantilla y kit</b><p>Primera versión con una sola marca.</p></div>
+    <div class="st"><div class="dot"></div><b>Formación</b><p>Por perfil: dirección, modelado, liderazgo BIM.</p></div>
+    <div class="st"><div class="dot"></div><b>Primer proyecto</b><p>Una tienda real con acompañamiento.</p></div>
+    <div class="st"><div class="dot"></div><b>Escalar</b><p>Más marcas y menos CAD en documentación.</p></div>
+  </div>
+  <div class="two mt2 in d3" style="grid-template-columns:1fr 900px;gap:40px">
+    <div>
+      <ul class="rules">
+        <li><b>Los proyectos en curso terminan en CAD.</b> Solo se migran los nuevos.</li>
+        <li><b>Primero una marca.</b> La más repetitiva, no la más difícil.</li>
+        <li><b>Formar por perfil.</b> No todos necesitan saber lo mismo.</li>
+      </ul>
+    </div>
+    <div class="chart">
+      <svg viewBox="0 0 720 300" role="img" aria-label="Curva ilustrativa de productividad durante la migración" font-family="Geist,sans-serif">
+        <line x1="50" y1="150" x2="700" y2="150" stroke="#7f8591" stroke-dasharray="7 7" stroke-width="2"/>
+        <text x="700" y="136" fill="#b4b8c0" font-size="23" text-anchor="end">Productividad actual</text>
+        <path d="M50 150C130 150 150 235 230 235S370 170 450 110 610 56 700 46" fill="none" stroke="#fb923c" stroke-width="5"/>
+        <text x="230" y="276" fill="#b4b8c0" font-size="23" text-anchor="middle">Curva de aprendizaje</text>
+        <text x="700" y="30" fill="#f3f1ec" font-size="23" text-anchor="end">Con plantilla madura</text>
+        <text x="50" y="30" fill="#7f8591" font-size="22">Ilustrativa, no son datos medidos</text>
+      </svg>
+      
+    </div>
+  </div>
+  <aside class="notes" data-t="90">
+    <p>Di con claridad la mala noticia: al comienzo se va más lento. Quien prometa lo contrario no ha migrado una oficina.</p>
+    <p>La curva es conceptual. Por eso la primera tienda debe escogerse con calma, sin la entrega más urgente del año.</p>
+    <p class="a">Cada etapa es lo que la oficina tendría que resolver: diagnóstico, estándar, plantilla, formación. No hace falta decir nada más sobre cómo se contrata; si preguntan, ahí conversan.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="riesgos" data-title="Qué puede salir mal" data-chapter="Organización" data-tool="org">
+  <div class="kick in">Riesgos</div>
+  <h2 class="in d1 mt1">Lo que suele salir mal y cómo evitarlo.</h2>
+  <table class="mt2 in d2">
+    <thead><tr><th style="width:40%">Riesgo</th><th>Cómo se maneja</th></tr></thead>
+    <tbody>
+      <tr><td>Bajón de productividad al inicio</td><td>Empezar con una tienda sin urgencia y una sola marca.</td></tr>
+      <tr><td>La plantilla no tiene dueño</td><td>Un líder BIM con tiempo asignado y control de versiones.</td></tr>
+      <tr><td>Modelar de más</td><td>Definir qué nivel de detalle pide cada entrega.</td></tr>
+      <tr><td>Familias pesadas o descargadas de internet</td><td>Biblioteca propia y revisada. Lo que no pasa revisión no entra.</td></tr>
+      <tr><td>Contratistas que siguen en CAD</td><td>Se les sigue entregando PDF y DWG. Nadie afuera tiene que cambiar.</td></tr>
+      <tr><td>Resistencia del equipo</td><td>Formar primero a quienes tienen curiosidad y mostrar resultados propios.</td></tr>
+    </tbody>
+  </table>
+  <aside class="notes" data-t="60">
+    <p>Mostrar los riesgos es lo que le da seriedad a la propuesta. Pregunta cuál les preocupa más.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="lod" data-title="Nivel de desarrollo (LOD)" data-chapter="Organización" data-tool="org">
+  <div class="kick in">LOD · Nivel de desarrollo</div>
+  <h2 class="in d1 mt1">No todo se modela al máximo. Cada entrega pide su nivel.</h2>
+  <div class="tabs mt1 in d2" id="lodTabs"></div>
+  <div class="lodw in d3">
+    <div class="pane"><span class="pt">Alzado 2D</span><svg id="lodSvg" viewBox="0 0 700 560" role="img" aria-label="Alzado de una góndola en el nivel de desarrollo elegido"></svg></div>
+    <div class="pane"><span class="pt">Vista 3D · arrastra para girar</span><div id="lod3d" style="position:absolute;inset:0;cursor:grab"></div></div>
+    <div class="lodtxt">
+      <div id="lodTxt"></div>
+      <p class="mta lodnota"><b>Para empezar:</b> LOD 300 en los planos, 350 solo donde el mueble se cruza con instalaciones, y el 400 lo hace el taller.</p>
+    </div>
+  </div>
+  <aside class="notes" data-t="120">
+    <p>LOD es <b>nivel de desarrollo</b>: cuánta geometría y cuánta información confiable tiene un elemento. Recorre los niveles con la misma góndola: 100, 200, 300, 350, 400 y 500.</p>
+    <p><b>Mensaje:</b> se responde al riesgo de la lámina anterior, modelar de más. Cada entrega pide un nivel, y eso se fija en la matriz de nivel de información.</p>
+    <p>El 500 no es más detalle: es lo construido, verificado en obra.</p>
+    <p class="a">La escala 100 a 500 es la de la especificación LOD de BIMForum. La serie ISO 19650 habla de nivel de información necesario (LOIN): pedir solo lo que necesita la decisión o la entrega.</p>
+  </aside>
+</section>
+
+<!-- ───────────── DECISIÓN ───────────── -->
+
+<section class="slide wide" id="decisiones" data-title="Cinco decisiones" data-chapter="Decisión" data-tool="dec">
+  <div class="kick in">Para salir de esta reunión</div>
+  <h2 class="in d1 mt1">Cinco decisiones que le corresponden a la dirección.</h2>
+  <div class="dec in d2">
+    <label><i>1</i><span>¿Con qué marca empezamos?</span><input id="d1" placeholder="La más repetitiva" autocomplete="off"></label>
+    <label><i>2</i><span>¿Cuál será el primer proyecto?</span><input id="d2" placeholder="Una tienda sin urgencia" autocomplete="off"></label>
+    <label><i>3</i><span>¿Quién será el líder BIM?</span><input id="d3" placeholder="Nombre y tiempo asignado" autocomplete="off"></label>
+    <label><i>4</i><span>¿Cuántas licencias y de qué tipo?</span><input id="d4" placeholder="Del selector" autocomplete="off"></label>
+    <label><i>5</i><span>¿Cuándo revisamos el primer resultado?</span><input id="d5" placeholder="Fecha" autocomplete="off"></label>
+  </div>
+  <div class="mt2 in d3"><button class="btn" id="btnCopiar">Copiar resumen</button></div>
+  <aside class="notes" data-t="120">
+    <p>Es el cierre real. Escribe las respuestas en vivo. Si una queda sin resolver, asigna responsable y fecha.</p>
+    <p class="a">Lo escrito se guarda solo en este navegador. Usa Copiar resumen para llevártelo.</p>
+  </aside>
+</section>
+
+<section class="slide" id="cierre" data-title="Cierre" data-chapter="Decisión" data-tool="dec">
+  <div class="kick in" style="margin-top:auto">Para recordar</div>
+  <h1 class="in d1 mt1" style="font-size:118px">Una tienda.<br>Un solo modelo.<br><span style="color:var(--ink3)">Una oficina que aprende.</span></h1>
+  <div class="contacto in d2 mt3">
+    <img src="assets/img/david.jpg" alt="">
+    <div>
+      <b>Arq. David Volkmar Vélez</b>
+      <span>Magíster en Bioclimática · Esp. Construcción Sostenible · Coordinador BIM</span>
+      <div class="cdat"><span><i>Correo</i>davidvolkmar9@gmail.com</span><span><i>Portafolio</i>davidvolkmar.github.io/BIOBIM</span><span><i>Ciudad</i>Medellín, Colombia</span></div>
+    </div>
+  </div>
+  <div style="margin-bottom:auto"></div>
+  <aside class="notes" data-t="20">
+    <p>Gracias. Abre preguntas. Con G puedes volver a cualquier lámina.</p>
+  </aside>
+</section>
+
+<section class="slide wide" id="fuentes" data-title="Fuentes y notas" data-chapter="Anexo" data-tool="dec" data-anexo="1">
+  <div class="kick">Anexo</div>
+  <h2 class="mt1">Fuentes y notas</h2>
+  <ul class="mt2" style="padding-left:28px">
+    <li style="font-size:26px">Autodesk. Comparación Revit y Revit LT, sitios de EE. UU. y Latinoamérica, consultados el 6 de noviembre de 2026. Precios sin impuestos.</li>
+    <li style="font-size:26px">Autodesk Help, Revit LT 2027: What Is Revit LT, About Keynotes, Project Templates y Best Practices: Project Templates.</li>
+    <li style="font-size:26px">Autodesk Support: Understanding interoperability between Revit and Revit LT.</li>
+    <li style="font-size:26px">ICONTEC (2021), NTC-ISO 19650-1. Ministerio de Vivienda: guía de estándares, métodos y procedimientos BIM.</li>
+    <li style="font-size:26px">BIM Fórum Colombia: plantilla de Plan de Ejecución BIM alineada con NTC-ISO 19650-2.</li>
+    <li style="font-size:26px">Referencia del valor de la suite AutoCAD Revit LT: precio de lista publicado en EE. UU. Debe cotizarse para Colombia.</li>
+    <li style="font-size:26px">BIMForum: Level of Development (LOD) Specification, niveles 100 a 500.</li>
+    <li style="font-size:26px">Curva de esfuerzo: Patrick MacLeamy, HOK (2004). Conceptual.</li>
+    <li style="font-size:26px">Marcas, medidas, materiales y cifras de las demostraciones son de ejemplo. Los proyectos reales se muestran sin nombre.</li>
+    <li style="font-size:26px">Las demostraciones ilustran el principio de funcionamiento; no ejecutan Revit.</li>
+  </ul>
+  <aside class="notes" data-t="0"><p>Anexo: no se presenta, queda por si preguntan de dónde salen los datos.</p></aside>
+</section>
+
+<div id="bar"></div><div id="hud"></div><div id="toast"></div><div id="black"></div><div id="notesInline"></div>
+<div class="overlay" id="grid">
+  <div class="kick">Índice</div>
+  <div class="list"></div>
+  <p class="keys"><kbd>→</kbd> avanzar &nbsp; <kbd>←</kbd> volver &nbsp; <kbd>F</kbd> pantalla completa &nbsp; <kbd>N</kbd> notas del orador &nbsp; <kbd>G</kbd> índice &nbsp; <kbd>B</kbd> pantalla negra &nbsp; <kbd>Esc</kbd> cerrar</p>
+</div>
+</div>
+
+<script src="assets/vendor/three.iife.js"></script>
+<script src="js/tienda.js"></script>
+<script src="js/contenido.js"></script>
+<script src="js/demos.js"></script>
+<script src="js/deck.js"></script>
+</body>
+</html>
